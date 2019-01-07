@@ -1,0 +1,24 @@
+class Solution {
+public:
+	vector<int> twoSum(vector<int>& nums, int target) {
+
+		unordered_map<int, int> mymap;      //创建哈希表
+		vector<int> res;                    //res作为输出结果的数组
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			mymap[nums[i]] = i;             //图的1为数 2为编号
+		}
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			int t = target - nums[i];       //遍历数组，需要t来匹配nums[i]得到target
+			if (mymap.count(t) && mymap[t] != i)   //t存在在图中  且t对应编号不为i
+			{
+				res.push_back(i);              
+				res.push_back(mymap[t]);      //压栈入res
+
+				break;
+			}
+		}
+		return res;
+	}
+};
