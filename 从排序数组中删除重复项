@@ -1,1 +1,22 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        
+    if (nums.empty()) return 0;//数组为空返回0
+    //这种情况谁第一次做能想到呢
+	int number = 0;//原地算法计数 
+	for (int i = 0; i < nums.size(); i++) {//遍历数组
 
+		if (nums[i] != nums[number]) { //原地数组第一个与遍历到的第i+1个元素比较
+			number++;//不同 则原地数组+1 到下一个元素
+			nums[number] = nums[i];下一个元素进行处理
+
+			cout << nums[number];
+		}
+	}
+
+
+    number++;//原地数组数目记得+1
+	return number;//返回
+    }
+};
