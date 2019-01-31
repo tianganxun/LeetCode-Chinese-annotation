@@ -1,16 +1,16 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        if(!nums.empty()){
+        if(!nums.empty()){//排除为空的情况 实际上并没有空数组的测试样例
         for(int i=0;i<k;i++)
         {
-            int temp=0;
-            temp=nums[nums.size()-1];
+            int temp=0;//原地算法
+            temp=nums[nums.size()-1];//最后一个置入temp
             for(int j=0;j<nums.size()-1;j++)
             {
-                nums[nums.size()-1-j]=nums[nums.size()-2-j];
+                nums[nums.size()-1-j]=nums[nums.size()-2-j];循环右移一位
             }
-             nums[0]  =temp; 
+             nums[0]  =temp; //第一个用temp里的值实现
         }
     }}
 };
